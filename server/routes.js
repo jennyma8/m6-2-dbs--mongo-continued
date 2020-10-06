@@ -1,6 +1,11 @@
 const router = require("express").Router();
 const { getSeats, bookSeat } = require("./handlers");
 
+router.get("/api/seat-availability", getSeats);
+router.post("/api/book-seat", bookSeat);
+
+module.exports = router;
+
 // const NUM_OF_ROWS = 8;
 // const SEATS_PER_ROW = 12;
 
@@ -100,7 +105,3 @@ const { getSeats, bookSeat } = require("./handlers");
 //     success: true,
 //   });
 // });
-router.get("/api/seat-availability", getSeats);
-router.post("/api/book-seat", bookSeat);
-
-module.exports = router;
