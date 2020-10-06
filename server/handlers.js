@@ -73,10 +73,11 @@ const bookSeat = async (req, res) => {
     assert.equal(1, r.matchedCount);
     assert.equal(1, r.modifiedCount);
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       success: true,
     });
+    client.close();
   } catch (error) {
     console.log(error);
 
@@ -85,7 +86,6 @@ const bookSeat = async (req, res) => {
       success: false,
     });
   }
-  client.close();
 };
 
 module.exports = { getSeats, bookSeat };
